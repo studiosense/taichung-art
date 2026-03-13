@@ -129,8 +129,8 @@
 
         <div class="station-card">
             <div class="comparison-container" id="station2">
-                <img src="lin-studio-art.JPG" class="art-image" alt="林之助膠彩畫">
-                <img src="lin-studio-real.jpg" class="real-image" alt="林之助與妻子">
+                <img src="lin-art.JPG" class="art-image" alt="林之助膠彩畫">
+                <img src="lin-studio.jpg" class="real-image" alt="林之助與妻子">
                 <button class="toggle-view-btn" onclick="toggleView('station2')">👁️ 切換現代實景</button>
             </div>
             <div class="info-content">
@@ -144,25 +144,26 @@
 
     </div>
 
-    <script>
-        function startTour() {
-            var audio = document.getElementById("welcome-bgm");
-            var welcome = document.getElementById("welcome");
-            var main = document.getElementById("main-content");
+<script>
+function playAndGo() {
+    var audio = document.getElementById("welcome-bgm");
+    var screen = document.querySelector('.welcome-screen');
+    
+    // 先嘗試播放音樂
+    audio.play().then(() => {
+        // 3秒後開始啟動「畫面淡出」
+        setTimeout(function() {
+            screen.classList.add('fade-out');
+        }, 3000);
 
-            // 播放背景音樂 (昭和風格)
-            audio.play();
-
-            // 淡出效果
-            welcome.classList.add('fade-out');
-            
-            setTimeout(function() {
-                welcome.style.display = 'none';
-                main.style.display = 'block';
-                // 讓內容淡入 (選配)
-                window.scrollTo(0,0);
-            }, 1500);
-        }
+        // 6秒後正式跳轉（此時畫面已經變暗了）
+        setTimeout(function() {
+            window.location.href = "station.html";
+        }, 6000); 
+    }).catch(error => {
+        window.location.href = "station.html";
+    });
+}
 
         // 切換畫作與實景
         function toggleView(stationId) {
