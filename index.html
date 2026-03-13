@@ -144,7 +144,58 @@
 
     </div>
 
+<div class="palette-box">
+    <h4>🎨 體驗：林之助的膠彩調配</h4>
+    <p>點擊礦石，感受岩繪具的色彩變幻</p>
+    
+    <div class="palette-ui">
+        <div id="ore" class="stone" onclick="grindStone()">🪨</div>
+        <div id="pigment" class="color-circle"></div>
+    </div>
+    <p id="color-name" style="font-weight: bold;"></p>
+</div>
+
+<style>
+    .palette-box {
+        background: #f9f7f2;
+        border: 1px dashed #8c7355;
+        padding: 15px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .stone { font-size: 50px; cursor: pointer; transition: transform 0.2s; }
+    .stone:active { transform: scale(0.8) rotate(10deg); }
+    .color-circle {
+        width: 60px; height: 60px;
+        border-radius: 50%;
+        margin: 15px auto;
+        background: #ccc; /* 預設灰色 */
+        transition: background 1.5s ease;
+    }
+</style>
+
 <script>
+    const colors = [
+        { name: "岩群青 (Azurite)", hex: "#2e5894" },
+        { name: "岩綠 (Malachite)", hex: "#1d7a46" },
+        { name: "朱砂 (Cinnabar)", hex: "#e34234" }
+    ];
+    let colorIndex = 0;
+
+    function grindStone() {
+        const pigment = document.getElementById('pigment');
+        const colorName = document.getElementById('color-name');
+        
+        // 變色邏輯
+        const selected = colors[colorIndex];
+        pigment.style.background = selected.hex;
+        colorName.innerText = "研磨成功！得到：" + selected.name;
+        
+        // 循環顏色
+        colorIndex = (colorIndex + 1) % colors.length;
+    }
+
+
     function startTour() {
     var audio = document.getElementById("welcome-bgm");
     var welcome = document.getElementById("welcome");
@@ -196,6 +247,7 @@
             }
         }
     </script>
+
 </body>
 </html>
 
