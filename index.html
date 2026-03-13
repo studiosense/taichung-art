@@ -145,25 +145,25 @@
     </div>
 
 <script>
-function playAndGo() {
-    var audio = document.getElementById("welcome-bgm");
-    var screen = document.querySelector('.welcome-screen');
-    
-    // 先嘗試播放音樂
-    audio.play().then(() => {
-        // 3秒後開始啟動「畫面淡出」
-        setTimeout(function() {
-            screen.classList.add('fade-out');
-        }, 3000);
+        function startTour() {
+            var audio = document.getElementById("welcome-bgm");
+            var welcome = document.getElementById("welcome");
+            var main = document.getElementById("main-content");
 
-        // 6秒後正式跳轉（此時畫面已經變暗了）
-        setTimeout(function() {
-            window.location.href = "station.html";
-        }, 6000); 
-    }).catch(error => {
-        window.location.href = "station.html";
-    });
-}
+            // 播放背景音樂 (昭和風格)
+            audio.play();
+
+            // 淡出效果
+            welcome.classList.add('fade-out');
+            
+            setTimeout(function() {
+                welcome.style.display = 'none';
+                main.style.display = 'block';
+                // 讓內容淡入 (選配)
+                window.scrollTo(0,0);
+            }, 1500);
+        }
+
 
         // 切換畫作與實景
         function toggleView(stationId) {
