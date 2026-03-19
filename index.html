@@ -94,7 +94,6 @@
 
         .info-content { padding: 20px; }
         .audio-player { margin-top: 15px; width: 100%; }
-        
         .fade-out { opacity: 0; pointer-events: none; }
 
 	/* 透視放大鏡 */
@@ -131,7 +130,8 @@
                 <img src="real-lake.jpg" class="real-image" alt="現代實景">
                 <button class="toggle-view-btn" onclick="toggleView('station1')">👁️ 切換現代實景</button>
             </div>
-            <div class="info-content">
+
+        <div class="info-content">
                 <h3>台中公園：湖心亭</h3>
                 <p>「這裡的綠與紅，畫家們最熱愛的寫生焦點。」</p>
                 <audio controls class="audio-player">
@@ -146,23 +146,23 @@
                 <img src="lin-studio.jpg" class="real-image" alt="林之助與妻子">
                 <button class="toggle-view-btn" onclick="toggleView('station2')">👁️ 切換現代實景</button>
             </div>
+
             <div class="info-content">
                 <h3>林之助紀念館</h3>
                 <p>感受「膠彩之父」筆下的光影細膩與畫室清幽。</p>
                 <audio controls class="audio-player">
                     <source src="audio-lin.mp3" type="audio/mpeg">
                 </audio>
+            </div>
+         </div>
 
 
 	<div class="xray-container" onmousemove="moveXray(event)" ontouchmove="moveXray(event)">
-	    <h4>🎨 體驗：測試測試</h4>
-    	    <p>點透視放大鏡</p>
-  	<div class="base-image"></div> <div class="overlay-image" id="xray-lens"></div> </div>
-            </div>
-        </div>
-
-    </div>
-
+         <div class="base-image"></div>
+         <div class="overlay-image" id="xray-lens"></div> 
+	
+	</div>
+ 
 
 <div class="palette-box">
     <h4>🎨 體驗：林之助的膠彩調配</h4>
