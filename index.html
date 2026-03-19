@@ -147,24 +147,6 @@
    
     </div>
 
-           <div class="xray-container" onmousemove="moveXray(event)" ontouchmove="moveXray(event)">
-             <h4>林寫真館</h4>
-             <p>滑動手指，撥開相館的迷霧。</p>
-             <div class="base-image"></div> 
-             <div class="overlay-image" id="xray-lens">
-           </div>    
-       </div>
- 
-<style>
-       .xray-container { position: relative; width: 100%; height: 300px; overflow: hidden; cursor: crosshair; }
-       .base-image { width: 100%; height: 100%; background: url('modern.jpg') center/cover; }
-       .overlay-image { 
-         position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-         background: url('history.jpg') center/cover;
-         clip-path: circle(50px at 50% 50%); /* 初始圓形位置 */
-}
-</style>
-
           <div class="palette-box">
             <h4>🎨 體驗：林之助的膠彩調配</h4>
             <p>點擊礦石，感受岩繪具的色彩變幻</p>
@@ -268,14 +250,6 @@
             }
         }
 
-
-        // 透視放大鏡       
-        function moveXray(e) {
-          let rect = e.currentTarget.getBoundingClientRect();
-          let x = (e.pageX || e.touches[0].pageX) - rect.left;
-          let y = (e.pageY || e.touches[0].pageY) - rect.top;
-          document.getElementById('xray-lens').style.clipPath = `circle(80px at ${x}px ${y}px)`;
-        }
    </script>
 
 </body>
