@@ -79,6 +79,8 @@
         .art-image { opacity: 1; }
         .real-image { opacity: 0; }
 
+        }
+        
         /* 切換按鈕樣式 */
         .toggle-view-btn {
             position: absolute;
@@ -96,16 +98,6 @@
         .audio-player { margin-top: 15px; width: 100%; }
         .fade-out { opacity: 0; pointer-events: none; }
 
-	/* 透視放大鏡 */
-	.xray-container { position: relative; width: 100%; height: 300px; overflow: hidden; cursor: crosshair; }
-	.base-image { width: 100%; height: 100%; background: url('modern.jpg') center/cover; }
-	.overlay-image { 
-  	    position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-  	    background: url('history.jpg') center/cover;
-  	    clip-path: circle(50px at 50% 50%); /* 初始圓形位置 */
-
-	 }
-       }
     </style>
 </head>
 
@@ -122,8 +114,8 @@
         <a href="javascript:void(0);" onclick="startTour()" class="start-btn">開啟導覽</a>
     </div>
 
-    <div id="main-content" class="container">
-        
+  
+   <div id="main-content" class="container">
         <div class="station-card">
             <div class="comparison-container" id="station1">
                 <img src="lin-lake.jpg" class="art-image" alt="林之助畫作">
@@ -131,14 +123,14 @@
                 <button class="toggle-view-btn" onclick="toggleView('station1')">👁️ 切換現代實景</button>
             </div>
 
-        <div class="info-content">
+           <div class="info-content">
                 <h3>台中公園：湖心亭</h3>
                 <p>「這裡的綠與紅，畫家們最熱愛的寫生焦點。」</p>
                 <audio controls class="audio-player">
                     <source src="audio-chen.mp3" type="audio/mpeg">
                 </audio>
             </div>
-        </div>
+    </div>
 
         <div class="station-card">
             <div class="comparison-container" id="station2">
@@ -154,11 +146,18 @@
                 <source src="audio-lin.mp3" type="audio/mpeg">
                 </audio>
             </div>
+       </div>
  
-       	<div class="xray-container" onmousemove="moveXray(event)" ontouchmove="moveXray(event)">
-        <div class="base-image"></div><div class="overlay-image" id="xray-lens"></div> 
-	
+       	<div class="xray-container" onmousemove="moveXray(event)" ontouchmove="moveXray(event)">    
+             <h4>林寫真館</h4>
+             <p>滑動手指，撥開歷史的迷霧。</p>
+
+	   <div class="base-image"></div>
+           <div class="overlay-image" id="xray-lens"></div>
+             
       </div>
+
+ </div>
  
 
 <div class="palette-box">
@@ -265,14 +264,6 @@
         }
 
 
-      //透視放大鏡      
-      function moveXray(e) {
-	let rect = e.currentTarget.getBoundingClientRect();
-	let x = (e.pageX || e.touches[0].pageX) - rect.left;
-	let y = (e.pageY || e.touches[0].pageY) - rect.top;
-	document.getElementById('xray-lens').style.clipPath = `circle(80px at ${x}px ${y}px)`;
-	     }
-        }
    </script>
 
 </body>
