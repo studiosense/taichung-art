@@ -98,6 +98,8 @@
         .fade-out { opacity: 0; pointer-events: none; }
     </style>
 </head>
+
+
 <body>
 
     <audio id="welcome-bgm" loop>
@@ -144,17 +146,6 @@
 
     </div>
 
-<div class="palette-box">
-    <h4>🎨 體驗：林之助的膠彩調配</h4>
-    <p>點擊礦石，感受岩繪具的色彩變幻</p>
-    
-    <div class="palette-ui">
-        <div id="ore" class="stone" onclick="grindStone()">🪨</div>
-        <div id="pigment" class="color-circle"></div>
-    </div>
-    <p id="color-name" style="font-weight: bold;"></p>
-</div>
-
 
 <div class="xray-container" onmousemove="moveXray(event)" ontouchmove="moveXray(event)">
   <div class="base-image"></div> <div class="overlay-image" id="xray-lens"></div> </div>
@@ -178,6 +169,17 @@ function moveXray(e) {
 }
 </script>
 
+
+<div class="palette-box">
+    <h4>🎨 體驗：林之助的膠彩調配</h4>
+    <p>點擊礦石，感受岩繪具的色彩變幻</p>
+    
+    <div class="palette-ui">
+        <div id="ore" class="stone" onclick="grindStone()">🪨</div>
+        <div id="pigment" class="color-circle"></div>
+    </div>
+    <p id="color-name" style="font-weight: bold;"></p>
+</div>
 
 <style>
     .palette-box {
