@@ -79,8 +79,6 @@
         .art-image { opacity: 1; }
         .real-image { opacity: 0; }
 
-        }
-        
         /* 切換按鈕樣式 */
         .toggle-view-btn {
             position: absolute;
@@ -96,14 +94,14 @@
 
         .info-content { padding: 20px; }
         .audio-player { margin-top: 15px; width: 100%; }
-
+        
         .fade-out { opacity: 0; pointer-events: none; }
     </style>
 </head>
 <body>
 
     <audio id="welcome-bgm" loop>
-        <source src="showa-modern.MP3" type="audio/mpeg">
+        <source src="showa-modern.mp3" type="audio/mpeg">
     </audio>
 
     <div id="welcome" class="welcome-screen">
@@ -112,23 +110,22 @@
         <a href="javascript:void(0);" onclick="startTour()" class="start-btn">開啟導覽</a>
     </div>
 
-  
-   <div id="main-content" class="container">
-
+    <div id="main-content" class="container">
+        
         <div class="station-card">
             <div class="comparison-container" id="station1">
-                <img src="lin-lake.jpg" class="art-image" alt="林之助畫作">
-                <img src="real-lake.jpg" class="real-image" alt="現代實景">
+               <img src="lin-lake.jpg" class="art-image" alt="林之助畫作">
+               <img src="real-lake.jpg" class="real-image" alt="現代實景">
                 <button class="toggle-view-btn" onclick="toggleView('station1')">👁️ 切換現代實景</button>
             </div>
-           <div class="info-content">
+            <div class="info-content">
                 <h3>台中公園：湖心亭</h3>
-                <p>「這裡的綠與紅，是畫家們最愛的寫生景點。」</p>
+                <p>「這裡的綠與紅，是百年前最熱情的寫生焦點。」</p>
                 <audio controls class="audio-player">
                     <source src="audio-chen.mp3" type="audio/mpeg">
                 </audio>
             </div>
-       </div>
+        </div>
 
         <div class="station-card">
             <div class="comparison-container" id="station2">
@@ -143,94 +140,29 @@
                     <source src="audio-lin.mp3" type="audio/mpeg">
                 </audio>
             </div>
-       </div>
-   
+        </div>
+
     </div>
 
-          <div class="palette-box">
-            <h4>🎨 體驗：林之助的膠彩調配</h4>
-            <p>點擊礦石，感受岩繪具的色彩變幻</p>
-    
-    <div class="palette-ui">
-        <div id="ore" class="stone" onclick="grindStone()">🪨</div>
-        <div id="pigment" class="color-circle"></div>
-    </div>
-    <p id="color-name" style="font-weight: bold;"></p>
-</div>
+    <script>
+        function startTour() {
+            var audio = document.getElementById("welcome-bgm");
+            var welcome = document.getElementById("welcome");
+            var main = document.getElementById("main-content");
 
-<style>
-    .palette-box {
-        background: #f9f7f2;
-        border: 1px dashed #8c7355;
-        padding: 15px;
-        margin-top: 20px;
-        text-align: center;
-    }
-    .stone { font-size: 50px; cursor: pointer; transition: transform 0.2s; }
-    .stone:active { transform: scale(0.8) rotate(10deg); }
-    .color-circle {
-        width: 60px; height: 60px;
-        border-radius: 50%;
-        margin: 15px auto;
-        background: #ccc; /* 預設灰色 */
-        transition: background 1.5s ease;
-    }
-</style>
+            // 播放背景音樂 (昭和風格)
+            audio.play();
 
-<script>
-    const colors = [
-        { name: "岩群青 (Azurite)", hex: "#2e5894" },
-        { name: "岩綠 (Malachite)", hex: "#1d7a46" },
-        { name: "朱砂 (Cinnabar)", hex: "#e34234" }
-    ];
-    let colorIndex = 0;
-
-    function grindStone() {
-        const pigment = document.getElementById('pigment');
-        const colorName = document.getElementById('color-name');
-        
-        // 變色邏輯
-        const selected = colors[colorIndex];
-        pigment.style.background = selected.hex;
-        colorName.innerText = "研磨成功！得到：" + selected.name;
-        
-        // 循環顏色
-        colorIndex = (colorIndex + 1) % colors.length;
-    }
-
-
-    function startTour() {
-    var audio = document.getElementById("welcome-bgm");
-    var welcome = document.getElementById("welcome");
-    var main = document.getElementById("main-content");
-
-    // 1. 播放背景音樂
-    audio.play();
-
-    // 2. 設定在 15 秒後自動淡出並停止 (秒數可自行調整)
-    setTimeout(function() {
-        // 創造一個平滑的淡出效果 (Fade out)
-        var fadeAudio = setInterval(function () {
-            if (audio.volume > 0.1) {
-                audio.volume -= 0.1; // 每次減掉 0.1 的音量
-            } else {
-                audio.pause();
-                audio.currentTime = 0; // 重置音樂進度
-                clearInterval(fadeAudio);
-            }
-        }, 200); // 每 0.2 秒調整一次
-    }, 15000); // 15000 毫秒 = 15 秒
-
-    // 3. 入口畫面淡出轉場
-    welcome.classList.add('fade-out');
-    
-    setTimeout(function() {
-        welcome.style.display = 'none';
-        main.style.display = 'block';
-        window.scrollTo(0,0);
-    }, 1500);
-}
-
+            // 淡出效果
+            welcome.classList.add('fade-out');
+            
+            setTimeout(function() {
+                welcome.style.display = 'none';
+                main.style.display = 'block';
+                // 讓內容淡入 (選配)
+                window.scrollTo(0,0);
+            }, 1500);
+        }
 
         // 切換畫作與實景
         function toggleView(stationId) {
@@ -249,15 +181,6 @@
                 btn.innerText = '🎨 切換藝術原作';
             }
         }
-
-   </script>
-
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
