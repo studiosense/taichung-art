@@ -100,11 +100,12 @@
 	.xray-container { position: relative; width: 100%; height: 300px; overflow: hidden; cursor: crosshair; }
 	.base-image { width: 100%; height: 100%; background: url('modern.jpg') center/cover; }
 	.overlay-image { 
-  	  position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-  	  background: url('history.jpg') center/cover;
-  	  clip-path: circle(50px at 50% 50%); /* 初始圓形位置 */
+  	    position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+  	    background: url('history.jpg') center/cover;
+  	    clip-path: circle(50px at 50% 50%); /* 初始圓形位置 */
 
 	 }
+       }
     </style>
 </head>
 
@@ -146,21 +147,18 @@
                 <button class="toggle-view-btn" onclick="toggleView('station2')">👁️ 切換現代實景</button>
             </div>
 
-            <div class="info-content">
-                <h3>林之助紀念館</h3>
-                <p>感受「膠彩之父」筆下的光影細膩與畫室清幽。</p>
-                <audio controls class="audio-player">
-                    <source src="audio-lin.mp3" type="audio/mpeg">
+         <div class="info-content">
+             <h3>林之助紀念館</h3>
+             <p>感受「膠彩之父」筆下的光影細膩與畫室清幽。</p>
+             <audio controls class="audio-player">
+                <source src="audio-lin.mp3" type="audio/mpeg">
                 </audio>
             </div>
-         </div>
-
-
-	<div class="xray-container" onmousemove="moveXray(event)" ontouchmove="moveXray(event)">
-         <div class="base-image"></div>
-         <div class="overlay-image" id="xray-lens"></div> 
+ 
+       	<div class="xray-container" onmousemove="moveXray(event)" ontouchmove="moveXray(event)">
+        <div class="base-image"></div><div class="overlay-image" id="xray-lens"></div> 
 	
-	</div>
+      </div>
  
 
 <div class="palette-box">
