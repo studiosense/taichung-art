@@ -96,12 +96,11 @@
 
         .info-content { padding: 20px; }
         .audio-player { margin-top: 15px; width: 100%; }
+
         .fade-out { opacity: 0; pointer-events: none; }
 
     </style>
 </head>
-
-
 <body>
 
     <audio id="welcome-bgm" loop>
@@ -116,13 +115,13 @@
 
   
    <div id="main-content" class="container">
+
         <div class="station-card">
             <div class="comparison-container" id="station1">
                 <img src="lin-lake.jpg" class="art-image" alt="林之助畫作">
                 <img src="real-lake.jpg" class="real-image" alt="現代實景">
                 <button class="toggle-view-btn" onclick="toggleView('station1')">👁️ 切換現代實景</button>
             </div>
-
            <div class="info-content">
                 <h3>台中公園：湖心亭</h3>
                 <p>「這裡的綠與紅，畫家們最熱愛的寫生焦點。」</p>
@@ -130,7 +129,7 @@
                     <source src="audio-chen.mp3" type="audio/mpeg">
                 </audio>
             </div>
-    </div>
+       </div>
 
         <div class="station-card">
             <div class="comparison-container" id="station2">
@@ -138,7 +137,6 @@
                 <img src="lin-studio.jpg" class="real-image" alt="林之助與妻子">
                 <button class="toggle-view-btn" onclick="toggleView('station2')">👁️ 切換現代實景</button>
             </div>
-
          <div class="info-content">
              <h3>林之助紀念館</h3>
              <p>感受「膠彩之父」筆下的光影細膩與畫室清幽。</p>
@@ -148,21 +146,18 @@
             </div>
        </div>
  
-       	<div class="xray-container" onmousemove="moveXray(event)" ontouchmove="moveXray(event)">    
-             <h4>林寫真館</h4>
-             <p>滑動手指，撥開歷史的迷霧。</p>
-
-	   <div class="base-image"></div>
-           <div class="overlay-image" id="xray-lens"></div>
-             
-      </div>
-
- </div>
+</div>
  
-
-<div class="palette-box">
-    <h4>🎨 體驗：林之助的膠彩調配</h4>
-    <p>點擊礦石，感受岩繪具的色彩變幻</p>
+           <div class="xray-container" onmousemove="moveXray(event)" ontouchmove="moveXray(event)">
+             <h4>林寫真館</h4>
+             <p>滑動手指，撥開相館的迷霧。</p>
+             <div class="base-image"></div> 
+             <div class="overlay-image" id="xray-lens"></div>    
+</div>
+ 
+          <div class="palette-box">
+            <h4>🎨 體驗：林之助的膠彩調配</h4>
+            <p>點擊礦石，感受岩繪具的色彩變幻</p>
     
     <div class="palette-ui">
         <div id="ore" class="stone" onclick="grindStone()">🪨</div>
